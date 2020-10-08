@@ -1,0 +1,65 @@
+<html>
+    <title>Colores</title>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="screen" id="screen"></div>
+        <div class="btnBox">
+            <button class="btn red">Rojo</button>
+            <button class="btn green">Verde</button>
+            <button class="btn blue">Azul</button>
+            <button class="btn">Limpiar</button>
+        </div>
+    </body>
+    <script>
+        // Metemos todos los botones en nuestro documento adentro de la constante btns.
+        // btns se convierte en una collection de elements con la clase btn
+        const btns = document.querySelectorAll('.btn');
+        // Metemos el elemento 'screen' (que obtenemos por su id) adentro de la constante screen
+        // Por que no usamos '#' para el id? getElementById asume ya que es un id el que se usara. No necesitamos el signo '#'
+        const screen = document.getElementById('screen');
+
+        // Recorremos cada elemento dentro de la coleccion btns usando forEach.
+        // Ver mas en: Array.prototype.forEach -> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+        btns.forEach(btn => {
+            // En este bloque, btn se convierte en cada elemento.
+            // forEach recorrera n veces segun la cantidad de elementos dentro de btns.
+
+            // Le agregamos un Event Listener al evento 'click' de cada boton.
+            // El listener sera la funcion cambiarColor
+            btn.addEventListener('click', cambiarColor);
+        });
+
+        function cambiarColor(e) {
+            // Primero debemos obtener el elemento html quien llamo esta funcion.
+            // la propiedad currentTarget nos ayuda a obtener el elemento. 
+            // Luego, necesitamos el texto dentro del boton. El resultado estara dentro de la variable text
+            var text = e.currentTarget.innerText;
+            
+            // Removemos las clases de colores que probablemente no utilizemos
+            screen.classList.remove('red');
+            screen.classList.remove('green');
+            screen.classList.remove('blue');
+            // Usamos switch para evaluar cada escenario.
+            switch(text) {
+                case 'Rojo':
+                    screen.classList.add('red');
+                    screen.innerText = 'Rojo';
+                    break;
+                case 'Verde':
+                    screen.classList.add('green');
+                    screen.innerText = 'Verde';
+                    break;
+                case 'Azul':
+                    screen.classList.add('blue');
+                    screen.innerText = 'Azul';
+                    break;
+                default:
+                    // Si no es ninguna de las opciones anteriores, ejecutamos el codigo by default.
+                    screen.innerText = '';
+                    break;
+            }
+        }
+    </script>
+</html>

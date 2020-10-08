@@ -1,0 +1,48 @@
+.screen{
+    background-color: gray;
+    width: auto;
+    height: 90%;
+}
+
+.btnBox{
+    width: auto;
+    height: 10%;
+}
+
+.btn{
+    height: auto;
+    background-color: gray;
+}
+
+.limpiar{
+    height: auto;
+    background-color: gray;
+}
+
+.btn:hover{
+    background-color: rgb(99,114,129);
+}
+
+.red{
+    background-color: #d30a3c;
+}
+
+.btn:hover .red{
+    background-color: #bd0a37;
+}
+
+.green{
+background-color: rgb(10, 184, 10);
+}
+
+.btn:hover .green{
+    background-color: green;
+}
+
+.blue{
+    background-color: #0e6ce6;
+    }
+    
+.btn .green:hover{
+    background-color: #0e53ad;
+}
